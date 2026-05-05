@@ -22,9 +22,9 @@ The neuroscience question generalised: if energy-first optimisation is the rule 
 
 Four papers in 2026 operationalise and test the framework:
 
-- *Causal thinking in physiology* (Frasch 2026a, *J Physiol*) — formal framework + multi-scale unification. **[Read →](/validation/physiology/)**
-- *Minimum-Action Learning* (Frasch 2026b, arXiv:2603.16951) — physics-law discovery at reduced training energy. **[Read →](/validation/physics/)**
-- *minAction.net: Energy-First Neural Architecture* (Frasch 2026c, arXiv:2604.24805) — 2,203-experiment validation at the architecture-design scale. **[Read →](/validation/neural-architecture/)**
-- *Modularity Emerges from Action-Functional Constraints* (Frasch 2026d, arXiv) — biology-scale validation in marine metagenomic networks. **[Read →](/validation/biology/)**
+- *Causal thinking in physiology* (Frasch 2026a, *J Physiol*, DOI&nbsp;[10.1113/JP290762](https://doi.org/10.1113/JP290762)) — formal framework + multi-scale unification. **[Read →](/validation/physiology/)**
+- *Minimum-Action Learning* (Frasch 2026b, [arXiv:2603.16951](https://arxiv.org/abs/2603.16951)) — physics-law discovery at reduced training energy. **[Read →](/validation/physics/)**
+- *minAction.net: Energy-First Neural Architecture* (Frasch 2026c, [arXiv:2604.24805](https://arxiv.org/abs/2604.24805)) — 2,203-experiment validation at the architecture-design scale. **[Read →](/validation/neural-architecture/)**
+- *Modularity Emerges from Action-Functional Constraints* (Frasch 2026d, arXiv preprint in submission) — biology-scale validation in marine metagenomic networks. Code and data: [github.com/martinfrasch/tara-modularity](https://github.com/martinfrasch/tara-modularity). **[Read →](/validation/biology/)**
 
 The site reflects this arc: the same framework, four independent tests, each making the case for the architectural-modularity prediction in its own domain.

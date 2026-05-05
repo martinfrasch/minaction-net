@@ -23,11 +23,11 @@ description: Canonical reference list, code repositories, and replication detail
 
 ## Code & data
 
-- **TARA biology paper code & data:** [github.com/martinfrasch/tara-gauge-emergence](https://github.com/martinfrasch/tara-gauge-emergence). Compiles end-to-end in &asymp;30&nbsp;s on an Apple M2 Max from a clean clone (after pulling annotations).
+- **TARA biology paper code & data:** [github.com/martinfrasch/tara-modularity](https://github.com/martinfrasch/tara-modularity). Compiles end-to-end in &asymp;30&nbsp;s on an Apple M2 Max from a clean clone (after pulling annotations).
 - **eggNOG annotations:** `gs://minaction-tara-gauge-backup/annotations/latest/` &mdash; public read, no authentication.
 - **Zenodo DOI:** *to be added at acceptance of the biology paper.*
-- **Physics law-discovery code:** *(repo link from the 2026b paper — to add.)*
-- **Energy-first NAS code:** *(repo link from the 2026c paper — to add.)*
+- **Physics law-discovery code (Frasch 2026b):** see the *Code Availability* section of [arXiv:2603.16951](https://arxiv.org/abs/2603.16951) for the canonical repository link.
+- **Energy-first NAS code (Frasch 2026c):** see the *Code Availability* section of [arXiv:2604.24805](https://arxiv.org/abs/2604.24805) for the canonical repository link.
 
 ## Replication
 

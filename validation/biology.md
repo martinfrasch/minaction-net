@@ -41,7 +41,7 @@ It also delivers a *methodological* contribution: bipartite-aware null compariso
 
 ## Code & data
 
-- **GitHub:** [martinfrasch/tara-gauge-emergence](https://github.com/martinfrasch/tara-gauge-emergence)
+- **GitHub:** [martinfrasch/tara-modularity](https://github.com/martinfrasch/tara-modularity)
 - **Annotations:** `gs://minaction-tara-gauge-backup/annotations/latest/` (public read)
 - **Zenodo DOI:** *to be added at acceptance.*
 
