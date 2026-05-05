@@ -1,0 +1,64 @@
+title: minAction.net
+tagline: A vertically organising principle for biological and learning systems
+description: >-
+  The Network-Weighted Action Principle (NWAP) and its four-domain validation
+  programme: physiology, physics, neural architecture, and biology.
+url: "https://minaction.net"
+author:
+  name: Martin G. Frasch
+  email: mfrasch@uw.edu
+  affiliation: Institute on Human Development and Disability, University of Washington
+
+# Use kramdown for markdown processing; disable its built-in math engine so
+# raw LaTeX passes through to KaTeX for client-side rendering.
+markdown: kramdown
+kramdown:
+  math_engine: null
+  syntax_highlighter: rouge
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+
+permalink: pretty
+
+# Pages we keep out of the GitHub Pages build.
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .gitignore
+
+# Top-level navigation. Order here drives the header order in the layout.
+nav:
+  - title: Home
+    url: /
+  - title: Framework
+    url: /framework/
+  - title: Validation
+    url: /validation/
+  - title: Origins
+    url: /origins/
+  - title: Papers & Code
+    url: /papers/
+  - title: About
+    url: /about/
+
+# Validation subpages, used by the validation landing page and footer cross-links.
+validation_subpages:
+  - title: Physiology
+    url: /validation/physiology/
+    paper: Frasch 2026a, J Physiol
+    doi: 10.1113/JP290762
+  - title: Physics
+    url: /validation/physics/
+    paper: Frasch 2026b, arXiv:2603.16951
+    doi: null
+  - title: Neural architecture
+    url: /validation/neural-architecture/
+    paper: Frasch 2026c, arXiv:2604.24805
+    doi: null
+  - title: Biology
+    url: /validation/biology/
+    paper: "Frasch 2026d, in submission"
+    doi: null
+
+last_updated: 2026-05-05
