@@ -10,7 +10,7 @@ lead: The Network-Weighted Action Principle, formally stated, with one shared ar
 
 The minAction.net programme starts from a simple observation: **complex biological and learning systems face a dual constraint**. They must minimise the energetic cost of operation, while simultaneously maximising the diversity of information they can process or represent. Either pole alone is degenerate — pure energy minimisation collapses to a static crystal; pure information maximisation diverges into noise. The systems we care about — brains, metabolic networks, evolved ecosystems, trained models — sit at the *edge of chaos* between these limits, and the equilibria they pick are structured.
 
-> **Embed Figure 1 panel B** from [Frasch 2026a (J Physiol)](https://doi.org/10.1113/JP290762) — *Life at the Edge of Chaos* — showing the narrow phase-transition zone where systems are simultaneously ordered and adaptable. The figure is openly accessible at the paper's DOI. Save as `/assets/img/edge-of-chaos.png` and replace this block with `![Edge of chaos](/assets/img/edge-of-chaos.png)`.
+> **Embed Figure 1 panel B** from [Frasch 2026a (J Physiol)](https://doi.org/10.1113/JP290762) — *Life at the Edge of Chaos* — showing the narrow phase-transition zone where systems are simultaneously ordered and adaptable. The figure is openly accessible at the paper's DOI. Save as `/assets/img/edge-of-chaos.png` and replace this block with `![Edge of chaos]({{ '/assets/img/edge-of-chaos.png' | relative_url }})`.
 
 ## The Network-Weighted Action
 
@@ -55,10 +55,10 @@ Variational principles in biology are not new. The **free-energy principle** (Fr
 
 2. **It makes a quantitative architectural prediction at *training* time.** Modularity excess $\Delta Q$ over bipartite-aware nulls *and* training-energy efficiency are both load-bearing observables. The neural-architecture paper (Frasch 2026c) operationalises the second; the biology paper (Frasch 2026d) operationalises the first; the physics paper (Frasch 2026b) shows both can hold simultaneously in a controlled test.
 
-Discriminating tests against the neighbouring variational frameworks remain future work — see the [Future work](/future-work/) tab. The current programme establishes that NWAP is **consistent with** the empirical signature in every domain tested so far, and uniquely useful as a *constructive* training objective in domains where engineering verification is possible.
+Discriminating tests against the neighbouring variational frameworks remain future work — see the [Future work]({{ '/future-work/' | relative_url }}) tab. The current programme establishes that NWAP is **consistent with** the empirical signature in every domain tested so far, and uniquely useful as a *constructive* training objective in domains where engineering verification is possible.
 
 ## The convergence diagram
 
 > **Embed Figure 1 panel E** from [Frasch 2026a (J Physiol)](https://doi.org/10.1113/JP290762) — *Convergence of theoretical frameworks* — the Venn-style overlap of free-energy principle, dissipative adaptation, network-weighted action, and phase transitions, with **"meaning"** at the centre. Save as `/assets/img/framework-convergence.png`.
 
-"Meaning" — operationally defined in the J Physiol paper as successful uncertainty reduction through efficient action — sits at the intersection of the four neighbouring accounts. It is the speculative payoff of the programme: a framework that connects measurable architectural signatures (modularity excess, training-energy efficiency) to a higher-level concept that has otherwise resisted quantification. We treat this as the open conceptual question, addressed from each side by the four 2026 papers and explicitly listed under [Future work](/future-work/).
+"Meaning" — operationally defined in the J Physiol paper as successful uncertainty reduction through efficient action — sits at the intersection of the four neighbouring accounts. It is the speculative payoff of the programme: a framework that connects measurable architectural signatures (modularity excess, training-energy efficiency) to a higher-level concept that has otherwise resisted quantification. We treat this as the open conceptual question, addressed from each side by the four 2026 papers and explicitly listed under [Future work]({{ '/future-work/' | relative_url }}).

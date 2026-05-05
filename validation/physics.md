@@ -29,8 +29,8 @@ It demonstrates that NWAP is operationally useful as a *training-time* objective
 <div class="see-also">
   <h3>See also — other validation domains</h3>
   <ul>
-    <li><a href="/validation/physiology/">Physiology — vertically organising principles</a></li>
-    <li><a href="/validation/neural-architecture/">Neural architecture — energy-first NAS</a></li>
-    <li><a href="/validation/biology/">Biology — marine metabolic networks</a></li>
+    <li><a href="{{ '/validation/physiology/' | relative_url }}">Physiology — vertically organising principles</a></li>
+    <li><a href="{{ '/validation/neural-architecture/' | relative_url }}">Neural architecture — energy-first NAS</a></li>
+    <li><a href="{{ '/validation/biology/' | relative_url }}">Biology — marine metabolic networks</a></li>
   </ul>
 </div>

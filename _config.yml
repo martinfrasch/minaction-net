@@ -4,6 +4,10 @@ description: >-
   The Network-Weighted Action Principle (NWAP) and its four-domain validation
   programme: physiology, physics, neural architecture, and biology.
 url: "https://minaction.net"
+# Subpath when served from GitHub Pages project URL
+# (martinfrasch.github.io/minaction-net/). Set this back to "" once DNS is
+# pointed at the custom domain (minaction.net) and the redirect is gone.
+baseurl: "/minaction-net"
 author:
   name: Martin G. Frasch
   email: mfrasch@uw.edu

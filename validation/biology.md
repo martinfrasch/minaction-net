@@ -50,8 +50,8 @@ It also delivers a *methodological* contribution: bipartite-aware null compariso
 <div class="see-also">
   <h3>See also — other validation domains</h3>
   <ul>
-    <li><a href="/validation/physiology/">Physiology — vertically organising principles</a></li>
-    <li><a href="/validation/physics/">Physics — physical-law discovery</a></li>
-    <li><a href="/validation/neural-architecture/">Neural architecture — energy-first NAS</a></li>
+    <li><a href="{{ '/validation/physiology/' | relative_url }}">Physiology — vertically organising principles</a></li>
+    <li><a href="{{ '/validation/physics/' | relative_url }}">Physics — physical-law discovery</a></li>
+    <li><a href="{{ '/validation/neural-architecture/' | relative_url }}">Neural architecture — energy-first NAS</a></li>
   </ul>
 </div>

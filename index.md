@@ -23,7 +23,7 @@ The classical view in biology and machine learning is **horizontal**: each scale
 
 NWAP is proposed as such a principle. It does not replace within-scale mechanisms; it predicts the *architectural target* that within-scale mechanisms converge on under the dual constraint of energy and information.
 
-> **Embed the *causal problem* schematic** from <https://sites.google.com/frasch.ca/minaction-net/> — the diagram showing horizontal vs vertical causality across scales (organism → organ → tissue → cellular → molecular). Save as `/assets/img/causal-problem.png` and replace this block with `![The causal problem](/assets/img/causal-problem.png)`.
+> **Embed the *causal problem* schematic** from <https://sites.google.com/frasch.ca/minaction-net/> — the diagram showing horizontal vs vertical causality across scales (organism → organ → tissue → cellular → molecular). Save as `/assets/img/causal-problem.png` and replace this block with `![The causal problem]({{ '/assets/img/causal-problem.png' | relative_url }})`.
 
 ## Life at the edge of chaos
 
@@ -46,26 +46,26 @@ At the intersection of the four neighbouring variational frameworks (free-energy
 ## The four-domain validation, at a glance
 
 <div class="domain-grid" markdown="0">
-  <a class="domain-card" href="/validation/physiology/">
+  <a class="domain-card" href="{{ '/validation/physiology/' | relative_url }}">
     <h3>Physiology</h3>
     <p>Vertically organising principles unify multi-scale causation; modularity is the architectural substrate. The theoretical anchor.</p>
     <span class="paper-ref">Frasch 2026a, <em>J Physiol</em></span>
   </a>
-  <a class="domain-card" href="/validation/physics/">
+  <a class="domain-card" href="{{ '/validation/physics/' | relative_url }}">
     <h3>Physics</h3>
     <p>Triple-Action functional recovers Kepler &amp; Hooke laws from noisy data at order-of-magnitude reduced training energy.</p>
     <span class="paper-ref">Frasch 2026b, arXiv:2603.16951</span>
   </a>
-  <a class="domain-card" href="/validation/neural-architecture/">
+  <a class="domain-card" href="{{ '/validation/neural-architecture/' | relative_url }}">
     <h3>Neural architecture</h3>
     <p>Energy-regularised objective improves training across 2,203 experiments. The strongest engineering proof of the programme.</p>
     <span class="paper-ref">Frasch 2026c, arXiv:2604.24805</span>
   </a>
-  <a class="domain-card" href="/validation/biology/">
+  <a class="domain-card" href="{{ '/validation/biology/' | relative_url }}">
     <h3>Biology</h3>
     <p>Marine metabolic networks show a robust modularity excess (ΔQ ≈ 0.40) over bipartite-aware nulls; recurrent communities map to known functional units.</p>
     <span class="paper-ref">Frasch 2026d, <em>Tara Oceans</em> (in submission)</span>
   </a>
 </div>
 
-[Read the framework paper →](/framework/) &nbsp;·&nbsp; [Browse the four validations →](/validation/) &nbsp;·&nbsp; [Future work →](/future-work/)
+[Read the framework paper →]({{ '/framework/' | relative_url }}) &nbsp;·&nbsp; [Browse the four validations →]({{ '/validation/' | relative_url }}) &nbsp;·&nbsp; [Future work →]({{ '/future-work/' | relative_url }})
