@@ -17,6 +17,20 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
 
   {%- comment -%}
+  Tailwind CDN for the embedded HTML/CSS/SVG diagrams ported from the
+  earlier Google Sites version of this site (causal problem, edge of
+  chaos, modularity animation, meaning cards). Scoped with prefix 'tw-'
+  and preflight disabled so it does not override the rest of the
+  site's typography.
+  {%- endcomment -%}
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false }
+    };
+  </script>
+
+  {%- comment -%}
   KaTeX for math. Loaded from jsDelivr; auto-render scans the page after load
   and converts $...$ / $$...$$ / \( \) / \[ \] to rendered math. Kramdown is
   configured with math_engine: null so it leaves these raw.

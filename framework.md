@@ -10,7 +10,7 @@ lead: The Network-Weighted Action Principle, formally stated, with one shared ar
 
 The minAction.net programme starts from a simple observation: **complex biological and learning systems face a dual constraint**. They must minimise the energetic cost of operation, while simultaneously maximising the diversity of information they can process or represent. Either pole alone is degenerate — pure energy minimisation collapses to a static crystal; pure information maximisation diverges into noise. The systems we care about — brains, metabolic networks, evolved ecosystems, trained models — sit at the *edge of chaos* between these limits, and the equilibria they pick are structured.
 
-> **Embed Figure 1 panel B** from [Frasch 2026a (J Physiol)](https://doi.org/10.1113/JP290762) — *Life at the Edge of Chaos* — showing the narrow phase-transition zone where systems are simultaneously ordered and adaptable. The figure is openly accessible at the paper's DOI. Save as `/assets/img/edge-of-chaos.png` and replace this block with `![Edge of chaos]({{ '/assets/img/edge-of-chaos.png' | relative_url }})`.
+{% include diagram-edge-of-chaos.html %}
 
 ## The Network-Weighted Action
 
@@ -45,7 +45,7 @@ The four-domain programme reduces to asking the same question, expressed in each
 
 The signature is the **same prediction** in four very different empirical settings. None of the four tests, taken alone, would falsify or uniquely confirm the framework. **Together** they form a multi-domain pattern: the same architectural target — modular, sparsely-connected, energy-conserving organisation — appears wherever the framework points.
 
-> **Embed Figure 1 panel D** from [Frasch 2026a (J Physiol)](https://doi.org/10.1113/JP290762) — *Emergence of modularity from cost minimisation* — showing the inverse relationship between connection cost and modularity, the testable architectural signature. Save as `/assets/img/modularity-from-cost.png`.
+{% include diagram-modularity-animation.html %}
 
 ## Why this is not just another variational principle
 

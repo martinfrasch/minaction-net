@@ -1,0 +1,110 @@
+<div class="w-full max-w-4xl mx-auto my-8 p-6 bg-slate-100 rounded-lg" style="font-family: 'Inter', system-ui, sans-serif;">
+  <h3 class="text-xl font-semibold text-center text-gray-800 mb-6">Interactive: minimising connection cost yields modularity</h3>
+  <style>
+    .ma-network-node, .ma-network-line { transition: all 0.5s ease-in-out; position: absolute; }
+    .ma-network-node { border-radius: 9999px; width: 1.5rem; height: 1.5rem; }
+    .ma-network-line { height: 2px; }
+    .ma-bg-gray-500 { background-color: #6b7280; }
+    .ma-bg-gray-400 { background-color: #9ca3af; }
+    .ma-bg-blue-600 { background-color: #2563eb; }
+    .ma-bg-blue-400 { background-color: #60a5fa; }
+    .ma-bg-red-600  { background-color: #dc2626; }
+    .ma-bg-red-400  { background-color: #f87171; }
+  </style>
+  <div class="grid grid-cols-3 gap-6 items-center">
+    <div class="text-center">
+      <div id="ma-network-1" class="relative mx-auto" style="width:10rem;height:10rem;">
+        <div class="ma-network-node ma-bg-gray-500" style="top:10%;left:45%;"></div>
+        <div class="ma-network-node ma-bg-gray-500" style="top:30%;left:15%;"></div>
+        <div class="ma-network-node ma-bg-gray-500" style="top:30%;left:75%;"></div>
+        <div class="ma-network-node ma-bg-gray-500" style="top:60%;left:15%;"></div>
+        <div class="ma-network-node ma-bg-gray-500" style="top:60%;left:75%;"></div>
+        <div class="ma-network-node ma-bg-gray-500" style="top:80%;left:45%;"></div>
+        <div class="ma-network-line ma-bg-gray-400" style="width:36%;top:25%;left:32%;transform:rotate(45deg);"></div>
+        <div class="ma-network-line ma-bg-gray-400" style="width:36%;top:25%;left:48%;transform:rotate(-45deg);"></div>
+        <div class="ma-network-line ma-bg-gray-400" style="width:60%;top:45%;left:21%;"></div>
+        <div class="ma-network-line ma-bg-gray-400" style="width:36%;top:55%;left:32%;transform:rotate(-45deg);"></div>
+        <div class="ma-network-line ma-bg-gray-400" style="width:36%;top:55%;left:48%;transform:rotate(45deg);"></div>
+        <div class="ma-network-line ma-bg-gray-400" style="width:60%;top:75%;left:21%;"></div>
+      </div>
+      <h4 class="font-semibold text-gray-800 mt-4">High Cost</h4>
+      <p class="text-sm text-gray-600">Non-Modular (Q ≈ 0.15)</p>
+    </div>
+    <div class="flex flex-col items-center justify-center text-gray-600">
+      <div class="text-5xl font-light">→</div>
+      <button id="ma-minimize-button" class="mt-2 px-4 py-2 bg-indigo-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75">Minimise cost</button>
+      <div class="text-5xl font-light mt-2">→</div>
+    </div>
+    <div class="text-center">
+      <div id="ma-network-2" class="relative mx-auto" style="width:10rem;height:10rem;">
+        <div class="ma-network-node ma-bg-blue-600" style="top:10%;left:15%;"></div>
+        <div class="ma-network-node ma-bg-blue-600" style="top:30%;left:35%;"></div>
+        <div class="ma-network-node ma-bg-blue-600" style="top:10%;left:35%;"></div>
+        <div class="ma-network-node ma-bg-red-600"  style="top:60%;left:60%;"></div>
+        <div class="ma-network-node ma-bg-red-600"  style="top:80%;left:60%;"></div>
+        <div class="ma-network-node ma-bg-red-600"  style="top:60%;left:80%;"></div>
+        <div class="ma-network-line ma-bg-blue-400" style="width:20%;top:25%;left:21%;"></div>
+        <div class="ma-network-line ma-bg-blue-400" style="width:20%;top:15%;left:21%;transform:rotate(90deg);"></div>
+        <div class="ma-network-line ma-bg-red-400"  style="width:20%;top:75%;left:66%;"></div>
+        <div class="ma-network-line ma-bg-red-400"  style="width:20%;top:65%;left:66%;transform:rotate(90deg);"></div>
+        <div class="ma-network-line ma-bg-gray-400" style="width:30%;top:48%;left:38%;transform:rotate(25deg);"></div>
+      </div>
+      <h4 class="font-semibold text-gray-800 mt-4">Low Cost</h4>
+      <p class="text-sm text-gray-600">Modular (Q ≈ 0.75)</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  function init() {
+    var btn = document.getElementById('ma-minimize-button');
+    var n1 = document.getElementById('ma-network-1');
+    var n2 = document.getElementById('ma-network-2');
+    if (!btn || !n1 || !n2) return;
+
+    var origNodes = Array.prototype.map.call(n1.querySelectorAll('.ma-network-node'), function (el) {
+      return { el: el, style: el.getAttribute('style'), cls: el.className };
+    });
+    var origLines = Array.prototype.map.call(n1.querySelectorAll('.ma-network-line'), function (el) {
+      return { el: el, style: el.getAttribute('style'), cls: el.className };
+    });
+
+    btn.addEventListener('click', function () {
+      var n2Nodes = n2.querySelectorAll('.ma-network-node');
+      var n2Lines = n2.querySelectorAll('.ma-network-line');
+
+      n1.querySelectorAll('.ma-network-node').forEach(function (node, i) {
+        if (n2Nodes[i]) {
+          node.setAttribute('style', n2Nodes[i].getAttribute('style'));
+          node.className = n2Nodes[i].className;
+        }
+      });
+      n1.querySelectorAll('.ma-network-line').forEach(function (line, i) {
+        if (n2Lines[i]) {
+          line.setAttribute('style', n2Lines[i].getAttribute('style'));
+          line.className = n2Lines[i].className;
+        } else {
+          line.style.opacity = '0';
+        }
+      });
+
+      setTimeout(function () {
+        origNodes.forEach(function (item) {
+          item.el.setAttribute('style', item.style);
+          item.el.className = item.cls;
+        });
+        origLines.forEach(function (item) {
+          item.el.setAttribute('style', item.style);
+          item.el.className = item.cls;
+        });
+      }, 2500);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
