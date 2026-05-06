@@ -45,7 +45,9 @@ It also delivers a *methodological* contribution: bipartite-aware null compariso
 - **Annotations:** `gs://minaction-tara-gauge-backup/annotations/latest/` (public read)
 - **Zenodo DOI:** *to be added at acceptance.*
 
-> *Embed Figure 7 from the paper — the four-null comparison — at `/assets/img/tara-fig7-nullmodels.png`.*
+![Modularity excess over the four null models, per sample]({{ '/assets/img/tara-fig7-nullmodels.png' | relative_url }})
+
+*Figure 7 from the biology paper. Per-sample observed Louvain $Q$ (red star) compared with four null distributions of increasing strictness — the bipartite-incidence (gold standard) excess of $\Delta Q \approx 0.40$ is the load-bearing biological signal.*
 
 <div class="see-also">
   <h3>See also — other validation domains</h3>

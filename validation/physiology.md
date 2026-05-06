@@ -28,7 +28,9 @@ The framework reproduces three established empirical regularities — Kleiber's 
 
 It establishes the framework formally, provides the unifying schema (Figure&nbsp;1 of the paper, panels A–E), and shows that NWAP is consistent with every existing major variational account in physiology. **It is the theoretical anchor of the four-domain programme.**
 
-> *Embed Figure 1A–E from the J Physiol paper. The figure is openly accessible at the paper's DOI; export as PNG and place at `/assets/img/jphysiol-fig1.png`.*
+![Vertically organising principles and the emergence of modularity in biological systems]({{ '/assets/img/jphysiol-fig1.png' | relative_url }})
+
+*Figure&nbsp;1 from Frasch 2026a (J Physiol, [DOI: 10.1113/JP290762](https://doi.org/10.1113/JP290762), CC&nbsp;BY). Panels A–E: horizontal vs vertical causality (A); life at the edge of chaos (B); the Network-Weighted Action across scales (C); emergence of modularity from cost minimisation (D); convergence of theoretical frameworks with "meaning" at the centre (E).*
 
 <div class="see-also">
   <h3>See also — other validation domains</h3>

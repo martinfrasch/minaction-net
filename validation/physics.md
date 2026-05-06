@@ -24,7 +24,9 @@ The Triple-Action objective recovers Kepler's gravitational-force law and Hooke'
 
 It demonstrates that NWAP is operationally useful as a *training-time* objective — not only a post-hoc descriptive principle. A learning system explicitly extremising the network-weighted action discovers physics-grade laws faster than one that does not. **This is the first non-physiology, non-biology test of the framework, and the first to produce engineering value.**
 
-> *Embed key figure from the arXiv paper at `/assets/img/2603-16951-headline.png`.*
+![Trajectory reconstruction and Hamiltonian conservation under the Triple-Action functional]({{ '/assets/img/2603-16951-headline.png' | relative_url }})
+
+*Headline figures from [Frasch 2026b (arXiv:2603.16951)](https://arxiv.org/abs/2603.16951). Top: trajectory reconstruction comparing the recovered force law to the ground-truth orbit. Bottom: soft-to-discrete architectural crystallisation under the Triple-Action functional — the gate distribution converges on a single basis (the true law) under temperature annealing.*
 
 <div class="see-also">
   <h3>See also — other validation domains</h3>

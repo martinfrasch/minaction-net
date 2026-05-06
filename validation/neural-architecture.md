@@ -36,7 +36,9 @@ The benefit is largest for biologically-inspired tasks (physiological time serie
 
 This is the *architectural*-scale test. It establishes that NWAP is not only a descriptive principle of natural biological networks but a **constructive principle for designing artificial ones**. The graded benefit by task biological-realism is itself a falsifiable prediction of the framework: the more the data are drawn from a biological process, the more an explicit energy term should help.
 
-> *Embed key figure from the arXiv paper at `/assets/img/2604-24805-headline.png`.*
+![Energy-first neural architectures: BimodalTrue and Physics-Lagrangian]({{ '/assets/img/2604-24805-headline.png' | relative_url }})
+
+*Figure&nbsp;1 from [Frasch 2026c (arXiv:2604.24805)](https://arxiv.org/abs/2604.24805). The two energy-first architectures evaluated across 2,203 experiments: BimodalTrue (top), implementing dual-pathway processing inspired by neuron–glia metabolic specialisation; and Physics-Lagrangian (bottom), decomposing the forward pass into kinetic ($T$), potential ($V$), and constraint ($C$) pathways.*
 
 <div class="see-also">
   <h3>See also — other validation domains</h3>
