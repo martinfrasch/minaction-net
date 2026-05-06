@@ -6,7 +6,9 @@ description: Open questions across the four-domain validation programme — disc
 lead: Open questions across the four 2026 papers, organised by what each domain individually leaves unresolved and where the four together point next.
 ---
 
-The four 2026 papers establish that the Network-Weighted Action Principle is consistent with the empirical signature it predicts in physiology, physics, neural architecture, and biology. The four together leave three substantive classes of question open. This page consolidates them.
+The four 2026 papers establish that the Network-Weighted Action Principle is consistent with the empirical signature it predicts in physiology, physics, neural architecture, and biology. The four together leave four substantive classes of question open. This page consolidates them.
+
+{% include diagram-future-work.html %}
 
 ## I. Discrimination among neighbouring variational principles
 

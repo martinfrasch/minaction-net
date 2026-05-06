@@ -1,0 +1,37 @@
+<div class="w-full max-w-3xl mx-auto my-8" style="font-family: 'Inter', system-ui, sans-serif;">
+  <svg viewBox="0 0 600 460" class="w-full" preserveAspectRatio="xMidYMid meet" aria-label="NWAP across scales">
+    {%- comment -%} Five concentric layers: organism > organ > tissue > cellular > molecular {%- endcomment -%}
+    <rect x="20"  y="20"  width="560" height="420" rx="12" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.4"/>
+    <rect x="60"  y="60"  width="480" height="340" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="1.4"/>
+    <rect x="100" y="100" width="400" height="260" rx="8"  fill="#fce7f3" stroke="#9d174d" stroke-width="1.4"/>
+    <rect x="140" y="140" width="320" height="180" rx="6"  fill="#dcfce7" stroke="#166534" stroke-width="1.4"/>
+    <rect x="180" y="180" width="240" height="100" rx="4"  fill="#ede9fe" stroke="#5b21b6" stroke-width="1.4"/>
+
+    {%- comment -%} Scale labels stacked at the left of each ring {%- endcomment -%}
+    <text x="36"  y="40"  font-size="12" font-weight="700" fill="#1e3a8a">Organism</text>
+    <text x="76"  y="80"  font-size="12" font-weight="700" fill="#92400e">Organ</text>
+    <text x="116" y="120" font-size="12" font-weight="700" fill="#9d174d">Tissue</text>
+    <text x="156" y="160" font-size="12" font-weight="700" fill="#166534">Cellular</text>
+    <text x="196" y="200" font-size="12" font-weight="700" fill="#5b21b6">Molecular</text>
+
+    {%- comment -%} Action functional in the inner core {%- endcomment -%}
+    <text x="300" y="232" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">
+      S<tspan baseline-shift="sub" font-size="9">NW</tspan> = ∫(E − I + A·C) dt
+    </text>
+    <text x="300" y="252" text-anchor="middle" font-size="11" fill="#374151" font-style="italic">extremised at every scale</text>
+
+    {%- comment -%} Bidirectional arrows between scales (Noble's biological relativity) {%- endcomment -%}
+    <g stroke="#475569" stroke-width="1" fill="none">
+      <path d="M 540 60 Q 560 40 540 20"/>
+      <path d="M 60  60 Q 40  40 60  20"/>
+      <path d="M 540 400 Q 560 420 540 440"/>
+      <path d="M 60  400 Q 40  420 60  440"/>
+    </g>
+
+    {%- comment -%} Caption strip at bottom {%- endcomment -%}
+    <text x="300" y="430" text-anchor="middle" font-size="11" fill="#475569">
+      The action is integrated over network ensembles at any chosen scale — without reformulation
+    </text>
+  </svg>
+  <p class="text-sm text-gray-600 text-center mt-2">After Frasch 2026a, J&nbsp;Physiol, Figure&nbsp;1C. The Network-Weighted Action functional applies to network ensembles at every level of biological organisation; Noble's principle of biological relativity becomes a property of the action.</p>
+</div>

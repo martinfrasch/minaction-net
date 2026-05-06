@@ -24,7 +24,7 @@ where $E$ is energy or operational cost, $I$ is the system's information / diver
 
 The integral is taken over network ensembles at any chosen scale — molecular to organismal, neuron to network, model to architecture — without reformulation. Noble's principle of biological relativity becomes a property of the action, not an external constraint.
 
-> **Embed Figure 1 panel C** from [Frasch 2026a (J Physiol)](https://doi.org/10.1113/JP290762) — *Network-Weighted Action across scales* — showing the action functional operating over physical, cellular, tissue, organ, and organism networks. Save as `/assets/img/nwap-scales.png`.
+{% include diagram-nwap-scales.html %}
 
 ## One architectural prediction, tested four ways
 
@@ -59,6 +59,6 @@ Discriminating tests against the neighbouring variational frameworks remain futu
 
 ## The convergence diagram
 
-> **Embed Figure 1 panel E** from [Frasch 2026a (J Physiol)](https://doi.org/10.1113/JP290762) — *Convergence of theoretical frameworks* — the Venn-style overlap of free-energy principle, dissipative adaptation, network-weighted action, and phase transitions, with **"meaning"** at the centre. Save as `/assets/img/framework-convergence.png`.
+{% include diagram-framework-convergence.html %}
 
 "Meaning" — operationally defined in the J Physiol paper as successful uncertainty reduction through efficient action — sits at the intersection of the four neighbouring accounts. It is the speculative payoff of the programme: a framework that connects measurable architectural signatures (modularity excess, training-energy efficiency) to a higher-level concept that has otherwise resisted quantification. We treat this as the open conceptual question, addressed from each side by the four 2026 papers and explicitly listed under [Future work]({{ '/future-work/' | relative_url }}).
