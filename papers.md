@@ -9,7 +9,7 @@ description: Canonical reference list, code repositories, and replication detail
 
 - Frasch, M.&nbsp;G. (2023). *Brain development dictates energy constraints on neural architecture search: cross-disciplinary insights on optimization strategies.* [arXiv:2310.03042](https://arxiv.org/abs/2310.03042).
 
-- Frasch, M.&nbsp;G. (2025). *A Framework for Convergent Design in a Computational Universe.* [PhilSci archive 26949](https://philsci-archive.pitt.edu/26949/).
+- Frasch, M.&nbsp;G. (2025). *Causal Thinking in Physiology: A Search for Vertically Organizing Principles.* [PhilSci archive 26949](https://philsci-archive.pitt.edu/26949/).
 
 ## Four-domain validation (2026)
 

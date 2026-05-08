@@ -14,7 +14,7 @@ The starting question was practical: AI's neural-architecture-search community w
 
 ## 2025 — Philosophical formulation
 
-*A Framework for Convergent Design in a Computational Universe* — [PhilSci archive 26949](https://philsci-archive.pitt.edu/26949/).
+*Causal Thinking in Physiology: A Search for Vertically Organizing Principles* — [PhilSci archive 26949](https://philsci-archive.pitt.edu/26949/).
 
 The neuroscience question generalised: if energy-first optimisation is the rule for biological networks, the same principle should apply to any system extremising a functional that includes connectivity cost. Schöner and Kelso's dynamic-coordination theory (1988) provided the mathematical bridge — a network-weighted action could subsume both the biological and the engineered cases.
 

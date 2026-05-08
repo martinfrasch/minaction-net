@@ -14,7 +14,7 @@ The programme tests whether a single action functional — the **Network-Weighte
 ## Contact
 
 - Email: [mfrasch@uw.edu](mailto:mfrasch@uw.edu)
-- LinkedIn: <https://www.linkedin.com/in/martinfrasch/>
+- LinkedIn: <https://www.linkedin.com/in/mfrasch/>
 
 ## Acknowledgements
 
