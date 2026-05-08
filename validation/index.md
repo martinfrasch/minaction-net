@@ -25,7 +25,7 @@ lead: Between 2023 and 2026 the Network-Weighted Action prediction has been oper
   <a class="domain-card" href="{{ '/validation/biology/' | relative_url }}">
     <h3>Biology</h3>
     <p>Marine metabolic networks show a robust modularity excess (ΔQ ≈ 0.40 over the bipartite-incidence null) across seven independent samples; recurrent communities map to known functional units.</p>
-    <span class="paper-ref">Frasch 2026d, <em>Tara Oceans</em>, in submission</span>
+    <span class="paper-ref">Frasch 2026d, arXiv:2605.05254</span>
   </a>
 </div>
 

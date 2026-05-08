@@ -19,7 +19,7 @@ description: Canonical reference list, code repositories, and replication detail
 
 - Frasch, M.&nbsp;G. (2026c). *minAction.net: Energy-First Neural Architecture Design — From Biological Principles to Systematic Validation.* [arXiv:2604.24805](https://arxiv.org/abs/2604.24805).
 
-- Frasch, M.&nbsp;G. (2026d). *Modularity Emerges from Action-Functional Constraints in Marine Metabolic Networks: A Biology-Scale Validation of the Network-Weighted Action Principle.* arXiv preprint, in submission. *(Link to be added once posted.)*
+- Frasch, M.&nbsp;G. (2026d). *Modularity Emerges from Action-Functional Constraints in Marine Metabolic Networks: A Biology-Scale Validation of the Network-Weighted Action Principle.* [arXiv:2605.05254](https://arxiv.org/abs/2605.05254).
 
 ## Code & data
 

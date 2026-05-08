@@ -62,7 +62,7 @@ validation_subpages:
     doi: null
   - title: Biology
     url: /validation/biology/
-    paper: "Frasch 2026d, in submission"
+    paper: "Frasch 2026d, arXiv:2605.05254"
     doi: null
 
 last_updated: 2026-05-05

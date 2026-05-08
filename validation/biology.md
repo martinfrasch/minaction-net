@@ -2,8 +2,8 @@
 layout: default
 title: "Validation: Biology"
 permalink: /validation/biology/
-description: Modularity emergence in marine metabolic networks — a biology-scale validation of the Network-Weighted Action Principle. Frasch 2026d, in submission.
-lead: Frasch (2026d). Modularity Emerges from Action-Functional Constraints in Marine Metabolic Networks — A Biology-Scale Validation of the Network-Weighted Action Principle. arXiv preprint, in submission.
+description: Modularity emergence in marine metabolic networks — a biology-scale validation of the Network-Weighted Action Principle. Frasch 2026d, arXiv:2605.05254.
+lead: Frasch (2026d). Modularity Emerges from Action-Functional Constraints in Marine Metabolic Networks — A Biology-Scale Validation of the Network-Weighted Action Principle. <a href="https://arxiv.org/abs/2605.05254">arXiv:2605.05254</a>.
 ---
 
 ## The claim

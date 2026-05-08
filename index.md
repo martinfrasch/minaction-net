@@ -66,7 +66,7 @@ At the intersection of the four neighbouring variational frameworks (free-energy
   <a class="domain-card" href="{{ '/validation/biology/' | relative_url }}">
     <h3>Biology</h3>
     <p>Marine metabolic networks show a robust modularity excess (ΔQ ≈ 0.40) over bipartite-aware nulls; recurrent communities map to known functional units.</p>
-    <span class="paper-ref">Frasch 2026d, <em>Tara Oceans</em> (in submission)</span>
+    <span class="paper-ref">Frasch 2026d, arXiv:2605.05254</span>
   </a>
 </div>
 
