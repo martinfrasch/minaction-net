@@ -1,0 +1,904 @@
+---
+# Standalone landing page: self-contained dark-theme design with its own
+# <head>/hero/footer, so it deliberately uses no site layout. Empty front
+# matter keeps Liquid processing on so the imprint stays in sync with
+# _config.yml (site.author.*, site.last_updated), matching the site footer.
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>minAction | Domain-Complete Intelligence</title>
+<meta name="description" content="{{ site.description }}">
+<meta name="author" content="{{ site.author.name }}">
+<style>
+:root {
+  --bg-color: #030303;
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --accent-indigo: #6366f1;
+  --accent-emerald: #10b981;
+  --accent-rose: #f43f5e;
+  --accent-amber: #fbbf24;
+  --card-bg: rgba(18, 18, 24, 0.7);
+  --border-color: #27272a;
+  --glow-indigo: rgba(99, 102, 241, 0.15);
+}
+
+* { box-sizing: border-box; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Background Grid Effect using CSS only (No external assets) */
+.bg-grid {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+header {
+  padding: 8rem 2rem 5rem;
+  text-align: center;
+  position: relative;
+  background: radial-gradient(circle at top, rgba(99,102,241,0.15) 0%, transparent 70%);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #818cf8;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin: 0 auto 1.5rem;
+  max-width: 1000px;
+}
+
+h1 span {
+  background: linear-gradient(to right, #818cf8, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+.cta-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--accent-indigo);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 20px var(--glow-indigo);
+}
+
+.btn-primary:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.05);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: #52525b;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+/* Sections Styling */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2.5rem;
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  border-color: #3f3f46;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Beautiful Title Links */
+.title-link {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: opacity 0.2s ease;
+}
+
+.title-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* The Formula Section with Enhanced Visual Legend styling */
+.formula-container {
+  background: rgba(10, 10, 12, 0.85);
+  border: 1px solid #3f3f46;
+  border-radius: 20px;
+  padding: 3.5rem 2rem;
+  margin: 4rem auto;
+  max-width: 1000px;
+  box-shadow: inset 0 0 30px rgba(99, 102, 241, 0.05);
+}
+
+.formula {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+/* Variable-Specific Formula Coloring */
+.formula span.term-s { color: #818cf8; text-shadow: 0 0 15px rgba(129, 140, 248, 0.3); }
+.formula span.term-e { color: #3b82f6; text-shadow: 0 0 15px rgba(59, 130, 246, 0.3); }
+.formula span.term-i { color: var(--accent-emerald); text-shadow: 0 0 15px rgba(16, 185, 129, 0.3); }
+.formula span.term-a { color: var(--accent-amber); text-shadow: 0 0 15px rgba(251, 191, 36, 0.3); }
+.formula span.term-c { color: var(--accent-rose); text-shadow: 0 0 15px rgba(244, 63, 94, 0.3); }
+.formula span.term-t { color: var(--text-secondary); }
+
+.formula-explanation {
+  margin-top: 3rem;
+}
+
+.left-side-explain {
+  border-left: 3px solid var(--accent-indigo);
+  padding-left: 1.5rem;
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+.left-side-explain h3 {
+  color: #818cf8;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.35rem;
+}
+
+.legend-header {
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+.legend-card {
+  padding-top: 1rem;
+  text-align: left;
+}
+.legend-card.s-border { border-top: 2px solid #818cf8; }
+.legend-card.e-border { border-top: 2px solid #3b82f6; }
+.legend-card.i-border { border-top: 2px solid var(--accent-emerald); }
+.legend-card.a-border { border-top: 2px solid var(--accent-amber); }
+.legend-card.c-border { border-top: 2px solid var(--accent-rose); }
+.legend-card.t-border { border-top: 2px solid var(--text-secondary); }
+
+.legend-card.tug-war {
+  border-top: 2px solid var(--accent-indigo);
+  background: rgba(99, 102, 241, 0.03);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.legend-title {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.legend-desc {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Simulator widget styling */
+.simulator-widget {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.sim-svg {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  background: #09090b;
+  border-radius: 12px;
+  border: 1px solid #18181b;
+}
+
+.slider-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: #27272a;
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent-indigo);
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--glow-indigo);
+  transition: transform 0.1s;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Edge of Chaos Graphic */
+.chaos-graphic {
+  background: #09090b;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.chaos-chart-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+  text-align: center;
+}
+
+.chaos-chart-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.chaos-chart-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 160px;
+  border-bottom: 2px solid #27272a;
+  padding: 0 1rem;
+}
+
+.chaos-bar-container {
+  width: 28%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.chaos-bar {
+  width: 100%;
+  border-radius: 6px 6px 0 0;
+  transition: all 0.5s ease;
+}
+
+.bar-solid { height: 25%; background: #3b82f6; }
+.bar-life { height: 90%; background: var(--accent-emerald); box-shadow: 0 0 25px rgba(16, 185, 129, 0.3); }
+.bar-gas { height: 50%; background: var(--accent-rose); }
+
+.chaos-labels-area {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1rem 0;
+}
+
+.chaos-label-col {
+  width: 28%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.primary-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.secondary-label {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+.chaos-chart-footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  border-top: 1px dashed #27272a;
+  padding-top: 1rem;
+}
+
+/* Vertical scale architecture */
+.scale-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.scale-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.scale-row:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: #3f3f46;
+}
+
+.scale-name {
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.scale-val {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.scale-arrow {
+  text-align: center;
+  color: var(--accent-indigo);
+  font-size: 1.2rem;
+  opacity: 0.5;
+}
+
+/* DCI Schematic */
+.dci-schematic {
+  width: 100%;
+  background: #09090b;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  padding: 2.5rem;
+}
+
+/* Code layout instruction card */
+.code-box {
+  background: #000;
+  border-radius: 12px;
+  padding: 1.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  overflow-x: auto;
+  border: 1px solid #27272a;
+}
+
+footer {
+  border-top: 1px solid var(--border-color);
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #020202;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Bottom breadcrumb links into the internal subpages */
+.footer-breadcrumbs {
+  margin-bottom: 2.5rem;
+  font-size: 0.95rem;
+}
+.footer-breadcrumbs a {
+  color: #818cf8;
+  text-decoration: none;
+  font-weight: 600;
+}
+.footer-breadcrumbs a:hover { text-decoration: underline; }
+.footer-breadcrumbs .sep { color: #52525b; margin: 0 0.4rem; }
+
+footer .imprint a { color: var(--text-secondary); }
+footer .imprint-fine { font-size: 0.8rem; margin-top: 1rem; color: #52525b; }
+footer .imprint-fine a { color: #52525b; }
+
+@media (max-width: 640px) {
+  .cta-group .btn { width: 100%; text-align: center; }
+  .formula-container { padding: 2rem 1rem; }
+  .scale-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .scale-val {
+    text-align: left;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+
+<header>
+  <span class="badge">A Research Milestone</span>
+  <h1>A Unified Theory of <span>Natural &amp; Artificial Intelligence</span></h1>
+  <p class="subtitle">Connecting scale-free physical laws to agentic generality through the <strong>Network-Weighted Action Principle (NWAP)</strong> and <strong>Domain-Complete Intelligence (DCI)</strong>.</p>
+  <div class="cta-group">
+    <a href="#framework" class="btn btn-primary">Explore the Physics</a>
+    <a href="#dci" class="btn btn-secondary">Read the DCI Position Note</a>
+  </div>
+</header>
+
+<section class="container" id="framework">
+  <div class="section-header">
+    <span class="badge" style="color:var(--accent-indigo)">Theory</span>
+    <h2>The Network-Weighted Action Principle</h2>
+    <p class="subtitle" style="margin-bottom: 0;">Biological architectures, physical systems, and machine intelligence models all extremise the exact same quantity.</p>
+  </div>
+
+  <div class="formula-container">
+    <div class="formula">
+      <span class="term-s">S<sub>NW</sub></span> = &int; ( <span class="term-e">E</span> &minus; <span class="term-i">I</span> + <span class="term-a">A</span> &middot; <span class="term-c">C</span> ) <span class="term-t">dt</span>
+    </div>
+
+    <div class="formula-explanation">
+      <div class="left-side-explain">
+        <h3><span class="term-s">S<sub>NW</sub></span> &mdash; The Left Side: Network-Weighted Action</h3>
+        <p style="color: var(--text-secondary); margin-top: 0; font-size: 0.95rem; line-height: 1.6;">
+          In classical variational physics, <strong>Action</strong> describes cumulative system pathway efficiency over a stretch of time, rather than a brief static snapshot. By applying this to network-weighted systems, <span class="term-s">S<sub>NW</sub></span> dictates that biological growth, neural learning, and cognitive agents naturally self-organize along a trajectory of "least resistance" &mdash; seeking to extremise (minimize) their structural cost of existence.
+        </p>
+      </div>
+
+      <div class="legend-header">Parameter Dictionary &amp; Dynamics</div>
+
+      <div class="grid cols-3">
+        <div class="legend-card e-border">
+          <span class="legend-title" style="color: #3b82f6;"><span class="term-e">E</span> &mdash; Energy Minimisation</span>
+          <p class="legend-desc">The thermodynamics of execution (metabolic ATP in physiology, electrical wattage in GPUs). Constrained directly to ensure long-term survivability.</p>
+        </div>
+        <div class="legend-card i-border">
+          <span class="legend-title" style="color: var(--accent-emerald);"><span class="term-i">I</span> &mdash; Information Capacity</span>
+          <p class="legend-desc">The network's capacity to model environment structures and reduce uncertainty. Because it carries a negative sign (&minus;<span class="term-i">I</span>), minimizing overall action forces this to be maximised.</p>
+        </div>
+        <div class="legend-card a-border">
+          <span class="legend-title" style="color: var(--accent-amber);"><span class="term-a">A</span> &mdash; Optimization Weight</span>
+          <p class="legend-desc">A tuning scale representation of evolutionary or environmental pressure. Defines how heavily connectivity economy is prioritized over raw computation capacity.</p>
+        </div>
+        <div class="legend-card c-border">
+          <span class="legend-title" style="color: var(--accent-rose);"><span class="term-c">C</span> &mdash; Connection Cost</span>
+          <p class="legend-desc">Physical constraints of maintaining links (axon lengths in cortical layouts, physical piping in metabolism). Minimized to protect scaling limits.</p>
+        </div>
+        <div class="legend-card t-border">
+          <span class="legend-title" style="color: var(--text-secondary);"><span class="term-t">dt</span> &mdash; Infinitesimal Time Step</span>
+          <p class="legend-desc">Temporal path integral progression. The integration (&int;...<span class="term-t">dt</span>) tracks the cumulative historical state transitions of the network.</p>
+        </div>
+        <div class="legend-card tug-war">
+          <span class="legend-title" style="color: #818cf8;">The Physical Tug-of-War</span>
+          <p class="legend-desc" style="font-size: 0.8rem; line-height: 1.4;">
+            To minimize overall Action (<span class="term-s">S<sub>NW</sub></span>), the network is structurally forced to compress energy (<span class="term-e">E</span>) and connection lengths (<span class="term-c">C</span>) while maximizing its information processing capacity (<span class="term-i">I</span>). Modularity is the mathematical equilibrium of this struggle.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container" style="padding-top: 0;">
+  <div class="grid cols-2" style="align-items: center;">
+    <div>
+      <span class="badge" style="color:var(--accent-emerald)">Interactive Demonstration</span>
+      <h2>Minimising Cost Yields Modularity</h2>
+      <p class="subtitle" style="margin-left:0; margin-bottom: 1.5rem;">The mathematical signature of NWAP is modularity excess (Q over null models). Watch the network partition itself as we increase optimization pressure to minimize physical wire costs.</p>
+      <p style="color: var(--text-secondary);">When connection cost is ignored, network architecture is chaotic. When connection costs are heavily penalized, nodes group into dense local clusters with thin inter-module pipelines—the architecture of robust, rapid local decision-making.</p>
+    </div>
+    <div class="simulator-widget">
+      <h3 style="margin:0; font-size:1.1rem; color: #fff;">Topology Optimization Engine</h3>
+      <svg class="sim-svg" id="network-svg" viewBox="0 0 400 300">
+        </svg>
+      <div class="slider-container">
+        <div style="display:flex; justify-content:space-between; margin-bottom: 0.5rem; font-size:0.85rem; font-weight:600;">
+          <span>High Wiring Cost (Random)</span>
+          <span style="color:var(--accent-emerald);">Optimised (Modular)</span>
+        </div>
+        <input type="range" id="cost-slider" min="0" max="100" value="0">
+      </div>
+      <div style="font-size:0.85rem; color:var(--text-secondary);">
+        Calculated Modularity Quality Metric: <strong id="q-val" style="color:#fff;">Q ≈ 0.15</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container" style="padding-top: 0;">
+  <div class="grid cols-2" style="align-items: center;">
+    <div class="chaos-graphic">
+      <div class="chaos-chart-title">Dynamical Phases &amp; Energy States</div>
+      <div class="chaos-chart-wrapper">
+        <div class="chaos-chart-area">
+          <div class="chaos-bar-container"><div class="chaos-bar bar-solid"></div></div>
+          <div class="chaos-bar-container"><div class="chaos-bar bar-life"></div></div>
+          <div class="chaos-bar-container"><div class="chaos-bar bar-gas"></div></div>
+        </div>
+        <div class="chaos-labels-area">
+          <div class="chaos-label-col">
+            <div class="primary-label">Crystals</div>
+            <div class="secondary-label">Ordered &amp; Rigid<br>Stable / Cannot Adapt</div>
+          </div>
+          <div class="chaos-label-col">
+            <div class="primary-label" style="color: var(--accent-emerald);">Life (NWAP)</div>
+            <div class="secondary-label">Critical Equilibrium<br>Stable &amp; Evolvable</div>
+          </div>
+          <div class="chaos-label-col">
+            <div class="primary-label" style="color: var(--accent-rose);">Weather</div>
+            <div class="secondary-label">Dissipative Chaos<br>Unstable / Cannot Survive</div>
+          </div>
+        </div>
+      </div>
+      <div class="chaos-chart-footer">
+        Vertical Axis: Dynamical Adaptability &middot; Horizontal Axis: Energy Consumption
+      </div>
+    </div>
+
+    <div>
+      <span class="badge" style="color:var(--accent-rose)">Thermodynamic Balance</span>
+      <h2>Life at the Edge of Chaos</h2>
+      <p class="subtitle" style="margin-left:0;">Living systems cannot survive in pure rigid order, nor can they handle pure thermal chaos. NWAP specifies a narrow, mathematically precise phase-transition zone.</p>
+      <p style="color: var(--text-secondary);">By avoiding the extremes of pure energy minimisation (crystallisation) and pure information maximisation (entropic noise), our action functional selects for the exact golden ratio that permits structural self-preservation and responsive behavioral evolution.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container" style="padding-top: 0;">
+  <div class="section-header">
+    <span class="badge">Verification</span>
+    <h2>Four Domains of Empirical Validation</h2>
+    <p class="subtitle">Rigorously tested modularity-excess and energy-efficiency signatures in independent domains. Click a domain title to explore the scientific paper.</p>
+  </div>
+
+  <div class="grid cols-4">
+    <div class="card">
+      <h3 style="margin-top:0;"><a class="title-link" style="color:#60a5fa;" href="https://physoc.onlinelibrary.wiley.com/doi/10.1113/JP290762" target="_blank">Physiology &#x2197;</a></h3>
+      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom: 1.5rem;">Frasch 2026a, <i>J Physiol</i></p>
+      <p>Establishes vertically organising principles as keys to unify multi-scale causation. Shows modularity acts as the core biological substrate.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;"><a class="title-link" style="color:var(--accent-emerald);" href="https://arxiv.org/abs/2603.16951" target="_blank">Physics &#x2197;</a></h3>
+      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom: 1.5rem;">Frasch 2026b, <i>arXiv:2603.16951</i></p>
+      <p>Recovers classical Kepler and Hooke laws from messy, noisy sensor data at an order-of-magnitude reduction in active training energy.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;"><a class="title-link" style="color:#a78bfa;" href="https://arxiv.org/abs/2604.24805" target="_blank">Neural Arch. &#x2197;</a></h3>
+      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom: 1.5rem;">Frasch 2026c, <i>arXiv:2604.24805</i></p>
+      <p>Proves energy-regularised objective constraints improve structural convergence and efficiency across 2,203 deep-learning experiments.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;"><a class="title-link" style="color:var(--accent-rose);" href="https://arxiv.org/abs/2605.05254" target="_blank">Biology &#x2197;</a></h3>
+      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom: 1.5rem;">Frasch 2026d, <i>arXiv:2605.05254</i></p>
+      <p>Demonstrates marine metabolic networks possess a robust modularity excess (&Delta;Q &asymp; 0.40) over null models; communities map directly to known functions.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container" id="dci" style="padding-top: 0;">
+  <div class="grid cols-2" style="align-items: center;">
+    <div>
+      <span class="badge" style="color:#a78bfa">The Missing Rung</span>
+      <h2>Domain-Complete Intelligence (DCI)</h2>
+      <p class="subtitle" style="margin-left:0;">Grounded in NWAP, we propose DCI as the mathematical bridge connecting fluid reasoning (ARC-AGI Level 2) with true, universal agentic AGI.</p>
+      <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">Unlike current monolithic artificial architectures optimized purely for prediction error, DCI operates via an <strong>Object-Meta Reflexivity Loop</strong>. This aligns the object execution domain directly with the high-level variational action functional.</p>
+
+      <div class="scale-stack">
+        <div class="scale-row">
+          <span class="scale-name">Object Level</span>
+          <span class="scale-val">Domain (&#x1D49F;) &amp; Executable Rules (&#x211B;)</span>
+        </div>
+        <div class="scale-arrow">&varr;</div>
+        <div class="scale-row">
+          <span class="scale-name">Meta Level</span>
+          <span class="scale-val">Organising Principle (&Pi;) &amp; Minimised Action (S<sub>NW</sub>)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dci-schematic">
+      <h3 style="margin-top:0; margin-bottom: 1.5rem; text-align: center; color: #fff;">The Scale-Invariant "Meaning" Spectrum</h3>
+      <div class="scale-stack">
+        <div class="scale-row">
+          <span class="scale-name">Cognitive Level</span>
+          <span class="scale-val">Constructing narratives &amp; world modeling</span>
+        </div>
+        <div class="scale-row">
+          <span class="scale-name">Organismal Level</span>
+          <span class="scale-val">Optimising paths to navigate &amp; survive</span>
+        </div>
+        <div class="scale-row">
+          <span class="scale-name">Tissue / Cellular</span>
+          <span class="scale-val">Self-maintenance &amp; biochemical efficiency</span>
+        </div>
+        <div class="scale-row">
+          <span class="scale-name">Molecular Level</span>
+          <span class="scale-val">Self-sustaining reaction networks</span>
+        </div>
+      </div>
+      <p style="font-size:0.85rem; color:var(--text-secondary); text-align:center; margin-top:1.5rem; line-height:1.4;">
+        <i>"Meaning"—the successful reduction of uncertainty through physical action—takes the exact same shape at every structural scale.</i>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="container" style="padding-top: 0;">
+  <div class="grid cols-2">
+    <div>
+      <span class="badge" style="color: #60a5fa;">Developer Documentation</span>
+      <h2>Stand Up the DCI Engine</h2>
+      <p class="subtitle" style="margin-left:0;">Integrate multi-author LaTeX positioning notes and explore the mathematical and python benchmarks within the open-source DCI workspace.</p>
+      <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">The project is ready to compile with standard TeX Live setups, using specialized mathematical notation macros defined in the preamble to keep research outputs consistent across authors.</p>
+      <a href="https://github.com/martinfrasch/minaction-dci" target="_blank" class="btn btn-primary">Visit GitHub Repository</a>
+    </div>
+    <div>
+      <div class="code-box">
+<span style="color:#a78bfa;"># Compile standard arXiv standalone tarball</span>
+$ make
+
+<span style="color:#a78bfa;"># Build fast preview layout (prose extraction)</span>
+$ make quick
+
+<span style="color:#a78bfa;"># Project Layout Structure</span>
+- main.tex       <span style="color:#6b7280;"># Main driver & build sequencer</span>
+- preamble.tex   <span style="color:#6b7280;"># Mathematical macros (\DCI, \NWAP, \Snw)</span>
+- references.bib <span style="color:#6b7280;"># Combined validations (frasch2026a-d)</span>
+- benchmark/     <span style="color:#6b7280;"># Python benchmark validation tools</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-breadcrumbs">
+    <a href="{{ '/framework/' | relative_url }}">Read the framework paper →</a>
+    <span class="sep">·</span>
+    <a href="{{ '/validation/' | relative_url }}">Browse the four validations →</a>
+    <span class="sep">·</span>
+    <a href="{{ '/future-work/' | relative_url }}">Future work →</a>
+  </p>
+  <p class="imprint">
+    <strong>minAction.net</strong> — research programme led by
+    <a href="mailto:{{ site.author.email }}">{{ site.author.name }}</a>,
+    {{ site.author.affiliation }}.
+  </p>
+  <p class="imprint-fine">
+    Last updated {{ site.last_updated }}. Source on
+    <a href="https://github.com/martinfrasch/minaction-net">GitHub</a>.
+  </p>
+</footer>
+
+<script>
+// Pure SVG network generator & modularity visualizer (Runs flawlessly offline)
+const svg = document.getElementById('network-svg');
+const costSlider = document.getElementById('cost-slider');
+const qValue = document.getElementById('q-val');
+
+const nodes = [
+  // Cluster 1
+  { id: 0, cluster: 1, rx: 100, ry: 90, x: 100, y: 90 },
+  { id: 1, cluster: 1, rx: 70, ry: 130, x: 70, y: 130 },
+  { id: 2, cluster: 1, rx: 130, ry: 140, x: 130, y: 140 },
+  { id: 3, cluster: 1, rx: 80, ry: 180, x: 80, y: 180 },
+  // Cluster 2
+  { id: 4, cluster: 2, rx: 300, ry: 80, x: 300, y: 80 },
+  { id: 5, cluster: 2, rx: 330, ry: 130, x: 330, y: 130 },
+  { id: 6, cluster: 2, rx: 270, ry: 140, x: 270, y: 140 },
+  { id: 7, cluster: 2, rx: 320, ry: 190, x: 320, y: 190 },
+  // Cluster 3
+  { id: 8, cluster: 3, rx: 200, ry: 210, x: 200, y: 210 },
+  { id: 9, cluster: 3, rx: 160, ry: 250, x: 160, y: 250 },
+  { id: 10, cluster: 3, rx: 240, ry: 240, x: 240, y: 240 },
+  { id: 11, cluster: 3, rx: 205, ry: 270, x: 205, y: 270 }
+];
+
+const modularTargets = [
+  { id: 0, tx: 90, ty: 100 },
+  { id: 1, tx: 80, ty: 120 },
+  { id: 2, tx: 105, ty: 115 },
+  { id: 3, tx: 95, ty: 135 },
+  { id: 4, tx: 310, ty: 100 },
+  { id: 5, tx: 320, ty: 120 },
+  { id: 6, tx: 295, ty: 115 },
+  { id: 7, tx: 305, ty: 135 },
+  { id: 8, tx: 200, ty: 220 },
+  { id: 9, tx: 185, ty: 235 },
+  { id: 10, tx: 215, ty: 235 },
+  { id: 11, tx: 200, ty: 255 }
+];
+
+const links = [];
+for (let i = 0; i < nodes.length; i++) {
+  for (let j = i + 1; j < nodes.length; j++) {
+    const isSameCluster = nodes[i].cluster === nodes[j].cluster;
+    links.push({ source: i, target: j, sameCluster: isSameCluster });
+  }
+}
+
+const svgLinks = [];
+links.forEach(l => {
+  const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+  line.setAttribute("stroke", l.sameCluster ? "#818cf8" : "#f43f5e");
+  line.setAttribute("stroke-width", l.sameCluster ? "1.5" : "0.5");
+  line.setAttribute("opacity", l.sameCluster ? "0.6" : "0.35");
+  svg.appendChild(line);
+  svgLinks.push({ el: line, data: l });
+});
+
+const svgNodes = [];
+nodes.forEach(n => {
+  const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  circle.setAttribute("r", "7");
+  circle.setAttribute("fill", n.cluster === 1 ? "#3b82f6" : n.cluster === 2 ? "#10b981" : "#f43f5e");
+  circle.setAttribute("stroke", "#fff");
+  circle.setAttribute("stroke-width", "1.5");
+  svg.appendChild(circle);
+  svgNodes.push({ el: circle, data: n });
+});
+
+function updatePositions(pct) {
+  nodes.forEach(n => {
+    const target = modularTargets.find(t => t.id === n.id);
+    n.x = n.rx + (target.tx - n.rx) * pct;
+    n.y = n.ry + (target.ty - n.ry) * pct;
+  });
+
+  svgNodes.forEach(sn => {
+    sn.el.setAttribute("cx", sn.data.x);
+    sn.el.setAttribute("cy", sn.data.y);
+  });
+
+  svgLinks.forEach(sl => {
+    const s = nodes[sl.data.source];
+    const t = nodes[sl.data.target];
+    sl.el.setAttribute("x1", s.x);
+    sl.el.setAttribute("y1", s.y);
+    sl.el.setAttribute("x2", t.x);
+    sl.el.setAttribute("y2", t.y);
+
+    if (!sl.data.sameCluster) {
+      const opac = 0.35 * (1 - pct);
+      sl.el.setAttribute("opacity", opac);
+      sl.el.setAttribute("stroke-width", opac > 0.05 ? "0.5" : "0");
+    } else {
+      sl.el.setAttribute("opacity", 0.6 + (pct * 0.4));
+      sl.el.setAttribute("stroke-width", 1.5 + (pct * 1.5));
+    }
+  });
+
+  const calculatedQ = 0.15 + (pct * 0.60);
+  qValue.textContent = `Q ≈ ${calculatedQ.toFixed(2)}`;
+}
+
+costSlider.addEventListener('input', (e) => {
+  const pct = e.target.value / 100;
+  updatePositions(pct);
+});
+
+// Initial draw
+updatePositions(0);
+</script>
+
+</body>
+</html>
