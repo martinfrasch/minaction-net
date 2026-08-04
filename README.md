@@ -57,15 +57,6 @@ inline and `$$ ... $$` for display. Kramdown is configured with
 
 ## Custom domain
 
-`CNAME` contains `minaction.net`. After pushing to GitHub:
-
-1. **Repo Settings → Pages → Custom domain:** confirm `minaction.net`.
-2. **DNS at the registrar:** create A records for the apex pointing to
-   GitHub Pages' four IPs (`185.199.108.153`, `.109.153`, `.110.153`,
-   `.111.153`), and a `CNAME` record for `www` pointing at
-   `martinfrasch.github.io`.
-3. Wait for DNS propagation. GitHub auto-provisions HTTPS via
-   Let's Encrypt once the domain resolves.
 
 ## License
 
