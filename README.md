@@ -31,7 +31,8 @@ CI configuration needed.
 │   ├── physiology.md              # Frasch 2026a
 │   ├── physics.md                 # Frasch 2026b (arXiv:2603.16951)
 │   ├── neural-architecture.md     # Frasch 2026c (arXiv:2604.24805)
-│   └── biology.md                 # Frasch 2026d (Tara Oceans, arXiv:2605.05254)
+│   ├── biology.md                 # Frasch 2026d (Tara Oceans, arXiv:2605.05254)
+│   └── soft-matter.md             # Frasch 2026e (nonreciprocal colloids, controlled test)
 ├── origins.md                     # 2023 → 2025 → 2026 arc
 ├── papers.md                      # Reference list, code, replication
 ├── about.md                       # Author, contact
