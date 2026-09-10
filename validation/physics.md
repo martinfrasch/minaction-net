@@ -34,5 +34,6 @@ It demonstrates that NWAP is operationally useful as a *training-time* objective
     <li><a href="{{ '/validation/physiology/' | relative_url }}">Physiology — vertically organising principles</a></li>
     <li><a href="{{ '/validation/neural-architecture/' | relative_url }}">Neural architecture — energy-first NAS</a></li>
     <li><a href="{{ '/validation/biology/' | relative_url }}">Biology — marine metabolic networks</a></li>
+    <li><a href="{{ '/validation/soft-matter/' | relative_url }}">Soft matter — controlled test in a nonreciprocal colloidal model</a></li>
   </ul>
 </div>

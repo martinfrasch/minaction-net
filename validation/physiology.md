@@ -38,5 +38,6 @@ It establishes the framework formally, provides the unifying schema (Figure&nbsp
     <li><a href="{{ '/validation/physics/' | relative_url }}">Physics — physical-law discovery</a></li>
     <li><a href="{{ '/validation/neural-architecture/' | relative_url }}">Neural architecture — energy-first NAS</a></li>
     <li><a href="{{ '/validation/biology/' | relative_url }}">Biology — marine metabolic networks</a></li>
+    <li><a href="{{ '/validation/soft-matter/' | relative_url }}">Soft matter — controlled test in a nonreciprocal colloidal model</a></li>
   </ul>
 </div>

@@ -46,5 +46,6 @@ This is the *architectural*-scale test. It establishes that NWAP is not only a d
     <li><a href="{{ '/validation/physiology/' | relative_url }}">Physiology — vertically organising principles</a></li>
     <li><a href="{{ '/validation/physics/' | relative_url }}">Physics — physical-law discovery</a></li>
     <li><a href="{{ '/validation/biology/' | relative_url }}">Biology — marine metabolic networks</a></li>
+    <li><a href="{{ '/validation/soft-matter/' | relative_url }}">Soft matter — controlled test in a nonreciprocal colloidal model</a></li>
   </ul>
 </div>
