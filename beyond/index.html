@@ -1,0 +1,280 @@
+---
+layout: null
+permalink: /beyond/
+sitemap: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Beyond minAction.net</title>
+<meta name="description" content="The Unseen Architecture, an interpretive essay by Martin G. Frasch on Tzimtzum, conservation, and the minAction directive.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* Layout: one reading column (~66ch) under a slim sticky index; the essay is the page, everything else frames it. */
+:root {
+  --ground: #eef0f3;      /* cool paper */
+  --surface: #f7f8fa;
+  --ink: #1d2433;         /* night-blue ink */
+  --ink-soft: #4a5468;
+  --ink-faint: #7b8496;
+  --rule: #d5d9e1;
+  --gold: #8a6a1f;        /* the app's gold, darkened for paper */
+  --gold-soft: #b8963f;
+  --halo: rgba(184,150,63,.18);
+  --display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --body: "Spectral", "Iowan Old Style", Georgia, serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --ground: #0e1118; --surface: #151a24; --ink: #e6e2d8; --ink-soft: #b3b0a8; --ink-faint: #7f8290;
+  --rule: #2a3040; --gold: #d4b062; --gold-soft: #a88a45; --halo: rgba(212,176,98,.14); color-scheme: dark } }
+:root[data-theme="dark"] {
+  --ground: #0e1118; --surface: #151a24; --ink: #e6e2d8; --ink-soft: #b3b0a8; --ink-faint: #7f8290;
+  --rule: #2a3040; --gold: #d4b062; --gold-soft: #a88a45; --halo: rgba(212,176,98,.14); color-scheme: dark }
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(56px + env(safe-area-inset-top, 0px)); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--ground); color: var(--ink); font: 300 1.125rem/1.72 var(--body); margin: 0; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--ground); }
+a { color: var(--gold); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--ink); }
+a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: 42rem; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+nav.index { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--ground) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--rule); }
+nav.index .wrap { display: flex; gap: 1.25rem; align-items: center; padding-block: .7rem; overflow-x: auto; white-space: nowrap; }
+nav.index .mark { font: 400 .95rem var(--display); color: var(--ink); text-decoration: none; margin-right: auto; }
+nav.index a:not(.mark) { font: 400 .72rem var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; }
+nav.index a:not(.mark):hover { color: var(--gold); }
+
+header.hero { padding-block: 4.5rem 2.5rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; }
+header.hero > div { min-width: 0; }
+.eyebrow { font: 400 .72rem var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 1rem; }
+h1 { font: 300 clamp(2.4rem, 7vw, 3.6rem)/1.05 var(--display); margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+h1 em { color: var(--gold); font-style: italic; }
+.lede { font-size: 1.2rem; color: var(--ink-soft); margin: 1.25rem 0 0; }
+.tzimtzum { width: 150px; height: 150px; max-width: 100%; }
+.tzimtzum circle.field { fill: var(--halo); stroke: var(--gold-soft); stroke-width: .8; }
+.tzimtzum circle.void { fill: var(--ground); stroke: var(--gold-soft); stroke-width: .8; stroke-dasharray: 2 3; }
+.tzimtzum line { stroke: var(--gold); stroke-width: 1.2; }
+.tzimtzum circle.point { fill: var(--gold); }
+@media (max-width: 560px) { header.hero { grid-template-columns: 1fr; } .tzimtzum { width: 110px; height: 110px; order: -1; } }
+
+section { padding-block: 1.5rem; }
+h2 { font: 400 1.65rem/1.2 var(--display); margin: 2.75rem 0 1rem; text-wrap: balance; }
+h2 .num { display: block; font: 400 .72rem var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: .4rem; }
+h3 { font: 400 1.15rem var(--display); margin: 1.5rem 0 .5rem; }
+p { margin: 0 0 1.1rem; }
+.formula { font-family: var(--mono); font-size: .95em; color: var(--gold); white-space: nowrap; }
+
+.status { border-left: 2px solid var(--gold-soft); padding: .2rem 0 .2rem 1.1rem; color: var(--ink-soft); font-size: 1.02rem; }
+.status p:last-child { margin-bottom: 0; }
+
+.contrast { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--rule); margin: 1.25rem 0 1.5rem; }
+.contrast div { padding: 1rem 1.1rem; min-width: 0; }
+.contrast div + div { border-left: 1px solid var(--rule); }
+.contrast span { display: block; font: 400 .7rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); }
+.contrast strong { font: 400 1.25rem var(--display); }
+@media (max-width: 480px) { .contrast { grid-template-columns: 1fr; } .contrast div + div { border-left: 0; border-top: 1px solid var(--rule); } }
+
+dl.drives { margin: 1rem 0 1.5rem; display: grid; gap: 1rem; }
+dl.drives dt { font: 400 1.05rem var(--display); color: var(--gold); }
+dl.drives dd { margin: .2rem 0 0; }
+
+ul.plain, ol.notes { padding-left: 1.2rem; }
+ul.plain li, ol.notes li { margin-bottom: .6rem; }
+ol.notes { font-size: .98rem; color: var(--ink-soft); }
+sup a { text-decoration: none; font: 400 .7em var(--mono); padding: 0 .1em; }
+
+.bridge { background: var(--surface); border: 1px solid var(--rule); padding: 1.4rem 1.5rem; margin-top: 2rem; }
+.bridge h2 { margin-top: 0; }
+
+.reading { display: grid; gap: 1rem; padding: 0; list-style: none; }
+.reading li { display: grid; gap: .1rem; }
+.reading a { font: 400 1.1rem var(--display); }
+.reading span { font-size: .95rem; color: var(--ink-soft); }
+
+.citebox { border: 1px solid var(--rule); background: var(--surface); }
+.citetabs { display: flex; border-bottom: 1px solid var(--rule); }
+.citetabs button { font: 400 .72rem var(--mono); letter-spacing: .08em; text-transform: uppercase; background: none; border: 0; border-bottom: 2px solid transparent; color: var(--ink-soft); padding: .6rem .9rem; cursor: pointer; }
+.citetabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--gold); }
+.citetabs button.copy { margin-left: auto; color: var(--gold); }
+.citetabs button:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+.cite { font: 400 .8rem/1.6 var(--mono); color: var(--ink-soft); margin: 0; padding: .9rem 1rem; overflow-x: auto; white-space: pre-wrap; overflow-wrap: anywhere; }
+#cite-bib { white-space: pre; overflow-wrap: normal; }
+footer { border-top: 1px solid var(--rule); margin-top: 3rem; }
+footer .wrap { padding-block: 1.5rem 3rem; font-size: .9rem; color: var(--ink-faint); }
+</style>
+
+<link rel="canonical" href="https://minaction.net/beyond/">
+</head>
+<body>
+
+<nav class="index" aria-label="On this page">
+  <div class="wrap">
+    <a class="mark" href="#top">Beyond minAction.net</a>
+    <a href="#essay">Essay</a>
+    <a href="#notes">Notes</a>
+    <a href="#voices">Voices</a>
+    <a href="#reading">Reading</a>
+  </div>
+</nav>
+
+<main id="top">
+  <div class="wrap">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Interpretive writing · Martin G. Frasch</p>
+        <h1>Beyond <em>minAction</em>.net</h1>
+        <p class="lede">What a variational principle might mean beyond the laboratory: in cosmology, in the Jewish mystical tradition, and in a single life.</p>
+      </div>
+      <svg class="tzimtzum" viewBox="0 0 150 150" role="img" aria-label="Tzimtzum: an infinite field, a withdrawn space at its centre, and a single line of light entering it">
+        <circle class="field" cx="75" cy="75" r="70"/>
+        <circle class="void" cx="75" cy="75" r="38"/>
+        <line x1="75" y1="5" x2="75" y2="62"/>
+        <circle class="point" cx="75" cy="75" r="2.5"/>
+      </svg>
+    </header>
+
+    <section aria-labelledby="about">
+      <h2 id="about">About this site</h2>
+      <p><a href="https://minaction.net">minAction.net</a> is a research programme on a variational principle, written <span class="formula">δA<sub>net</sub> = 0</span>: the Network-Weighted Action Principle. It tests that principle in physiology, physics, neural architectures and biology. Its papers, code and validations, including a test that refuted one of its own proposed mechanisms, are published there.</p>
+      <p>This site is something different. It asks what the same principle might mean outside the laboratory. These essays are reflections, not results of the research programme, and they make no claim the papers would need to support.</p>
+    </section>
+
+    <section id="essay" aria-labelledby="essay-title">
+      <p class="eyebrow">Essay</p>
+      <h2 id="essay-title" style="margin-top:0">The Unseen Architecture: From Cosmic Contraction to Convergent Design</h2>
+      <div class="status">
+        <p>An interpretive essay by Martin G. Frasch. It draws on the minAction research programme (<a href="https://minaction.net">minaction.net</a>; formal paper: <a href="https://arxiv.org/abs/2603.16951">arXiv 2603.16951</a>) and goes beyond what that research tests. Where the essay says “minAction.net”, the research writes the principle as <span class="formula">δA<sub>net</sub> = 0</span>; E<sub>min</sub> and I<sub>max</sub> name its two terms, cost and impact.</p>
+      </div>
+
+      <p>In the distance that often separates the world’s mystical traditions from the mathematics of modern physics, a resonance can be found. It emerges when we place one of the most esoteric concepts of Kabbalistic metaphysics, the Lurianic doctrine of Tzimtzum, or divine contraction, alongside one of the most foundational principles of physical reality: the Law of Conservation of Energy. At first glance, they inhabit different universes of thought. One is a narrative of divine will, consciousness, and metaphysical necessity; the other is a description of an impersonal, mathematically consistent reality. Yet, explored closely, they share an architecture, a correspondence of function and form that suggests a unified framework for understanding not only the nature of our universe, but the reason for its existence.</p>
+      <p>This exploration proposes a model that begins with this parallel and ends in a theory of cosmic evolution driven by a single, universal directive: a principle of minimum action and maximum impact, termed minAction.net. The framework suggests that the universe we inhabit is not a random statistical accident drawn from an infinite multiverse, but the convergent solution to a deep computational search for a stable and meaningful existence.</p>
+
+      <h2><span class="num">Part I</span>The Symmetric Stage of Creation</h2>
+      <p>Every coherent cosmology must begin with a transition from a state of undifferentiated unity to one of manifest complexity. In the Kabbalistic tradition of Isaac Luria, this primordial state is the Ein Sof (literally, “Without End”), an infinite, unknowable, and absolute unity of divine potential.<sup><a href="#n1" id="r1">1</a></sup> Within this totality, no distinct thing can exist; there is no “here” or “there,” no “before” or “after.” For a finite reality to emerge, the Ein Sof must first perform an act of Tzimtzum, a “contraction” or “concealment” of its own infinite presence.<sup><a href="#n2" id="r2">2</a></sup> This act is not a movement in space but a metaphysical withdrawal, creating a conceptual “vacant space” (Chalal) into which the universe can be emanated. This new reality, however, is not severed from its source. It is structured by a remnant or “impression” of the divine, the Reshimu, which provides the foundational laws and ordering principles for the new cosmos.<sup><a href="#n3" id="r3">3</a></sup></p>
+      <p>This metaphysical narrative finds a physical analogue in the modern understanding of our universe’s foundational laws. Physics, too, posits a kind of primordial unity in the total energy of our closed cosmic system. The Law of Conservation of Energy states that this total quantity is immutable; it can be neither created nor destroyed, only transformed.<sup><a href="#n4" id="r4">4</a></sup> This law provides the ultimate guarantee of stability for our reality. The insight of Emmy Noether’s theorem is that this conservation law is not arbitrary. It is the direct mathematical consequence of a deeper principle: time-translation symmetry. This symmetry means that the laws of physics are the same at every moment in time. They are constant, reliable, and predictable.</p>
+      <p>Here the parallel is close. Both frameworks describe the creation of a stable, consistent “stage” for reality to unfold. The Tzimtzum creates a space governed by the reliable structure of the Reshimu; physical law is underpinned by a fundamental time symmetry that guarantees the reliability of the cosmos. Both describe a reality founded on an unchanging, symmetric backdrop.</p>
+
+      <h2><span class="num">Part II</span>The Paradox of the Asymmetric Play</h2>
+      <p>This symmetric foundation, however, creates a paradox. If the underlying laws of reality are time-symmetric, if the film of physical interactions looks just as plausible played forwards as backwards, why is our lived experience so relentlessly asymmetric? We experience an undeniable “Arrow of Time.” Stars radiate heat, sugar dissolves in water, and living things are born, age, and die. A shattered glass does not spontaneously reassemble itself. This is the Second Law of Thermodynamics, the statistical tendency of systems to move from order (low entropy) to disorder (high entropy).<sup><a href="#n5" id="r5">5</a></sup> Our universe has a history, a one-way causal narrative unfolding upon a stage whose fundamental rules suggest no such directionality should exist.</p>
+      <div class="contrast">
+        <div><span>Governing laws</span><strong>Symmetric</strong></div>
+        <div><span>Macroscopic experience</span><strong>Asymmetric</strong></div>
+      </div>
+      <p>How can a symmetric stage produce such a directional play? What is the engine that drives this one-way process we call “history”?</p>
+
+      <h2><span class="num">Part III</span>The Directive: minAction.net</h2>
+      <p>The proposed resolution lies in the universe’s initial conditions and the directive that governs its evolution. The Big Bang left the universe in a state of immense potential tension: very low entropy (highly ordered) and high potential energy. This state is highly improbable. The subsequent history of the cosmos can be read as the process of resolving this tension. The directive governing this process is what we term minAction.net, a principle that can be seen as the metaphysical expression of the physical Principle of Least Action. In this reading, the universe unfolds along the path that is most efficient and most impactful.</p>
+      <p>The directive has a dual nature, giving rise to two distinct, complementary drives:</p>
+      <dl class="drives">
+        <div><dt>E<sub>min</sub> · minimize energy, or action</dt>
+        <dd>In this reading, the drive toward entropy, the physical face of the Second Law of Thermodynamics. It represents the path of least resistance for energy, which is to dissipate, spread out, and move from ordered states to more probable disordered ones. This one-way flow from low to high entropy is the Arrow of Time. It is not a fundamental law itself, but an emergent statistical property of a system following the E<sub>min</sub> directive. It is the universe “exhaling.”</dd></div>
+        <div><dt>I<sub>max</sub> · maximize impact, or information</dt>
+        <dd>If the universe were governed by E<sub>min</sub> alone, it would be a featureless slide into a uniform “heat death.” But as energy flows downhill toward entropy, it is harnessed to build temporary, localized pockets of order and complexity. These structures are impactful and information-rich. I<sub>max</sub> is the creative counter-current, the drive to build galaxies, forge heavy elements, and give rise to life and consciousness. These structures do not violate the Second Law; they are efficient mechanisms for increasing the universe’s total entropy, and they do so by creating temporary islands of local order.</dd></div>
+      </dl>
+      <p>The Arrow of Time is thus the shadow cast by E<sub>min</sub>, while the complex structures in the cosmos are the work of I<sub>max</sub>. minAction.net is proposed as the single engine behind both decay and creation.</p>
+
+      <h2><span class="num">Part IV</span>The Algorithm of Creation: A Relational Architecture</h2>
+      <p>This framework raises the question: how does I<sub>max</sub> build complexity? A random search for stable structures would be astronomically inefficient, violating the core tenet of E<sub>min</sub>. The proposal here is that it follows a recurring architectural pattern, which we can call the “glial-neural net.”</p>
+      <p>Generalized from its biological context, this architecture holds that stable, complex systems are composed of two interdependent types of units:</p>
+      <ul class="plain">
+        <li><strong>“Neural” units, the actors:</strong> the primary, energy-intensive components that perform the system’s main work (stars undergoing fusion, neurons firing).</li>
+        <li><strong>“Glial” units, the regulators:</strong> the units that provide the contextual, regulatory, and logistical support that makes the neural units efficient and coherent (gravity organizing stars into a galaxy, astrocytes regulating blood flow to neurons).</li>
+      </ul>
+      <p>Performance and stability are found not in the units themselves, but in the ratio and relationship between them. This relational principle constrains the cosmic search space. The universe does not spend energy building unbalanced systems. It “learns” and propagates architectures where the glial-neural balance creates a positive feedback loop of stability, predictive capacity, and increasing impact. On this view, this is the algorithm I<sub>max</sub> uses to build everything from atoms to brains.</p>
+
+      <h2><span class="num">Conclusion</span>From Fine-Tuning to Convergent Design</h2>
+      <p>This multi-layered framework offers an alternative to one of the most debated ideas in modern cosmology: the multiverse. The “fine-tuning problem,” the observation that the fundamental constants of our universe seem set to values that permit life, is often explained by positing an infinite number of universes, each with a random set of constants, our own being a lucky statistical outcome.</p>
+      <p>The minAction.net framework offers a different answer: the laws of physics are not a lottery ticket, but the convergent solution to a cosmic optimization problem. On this view, the earliest moments of the universe were a deep search across a vast space of potential physical laws, guided by the directive:</p>
+      <ul class="plain">
+        <li>The E<sub>min</sub> constraint filtered out laws that did not produce a stable, self-sustaining reality.</li>
+        <li>The I<sub>max</sub> driver selected the architecture most capable of generating complexity through the glial-neural algorithm.</li>
+      </ul>
+      <p>The constants we observe would then be not random, but the convergent solution that best satisfies these two imperatives. We would not need an infinite number of failed universes to explain our successful one; one universe, running an optimization, would be enough to find the most stable and impactful configuration.</p>
+      <p>Read this way, our universe is not a statistical accident. It is the outcome of a cosmos built around a single directive: to exist as simply, and as meaningfully, as possible. The ancient notion of a cosmos born from a purposeful act of limitation finds a modern counterpart in a universe that continually discovers and creates itself through efficient and impactful design.</p>
+
+      <div class="bridge">
+        <h2>From the cosmos to the count</h2>
+        <p>The same directive, read at the scale of a single life, is walked in the Omer. The seven days of Creation compose the world in pairs; the forty-nine days from Pesach to Shavuot repeat the seven within the seven, each day one middah inside another. Walked deliberately, day by day, the count becomes a small act of the same making.</p>
+        <p><strong>Omer</strong>, an iPhone app, offers that walk in 49-day cycles at any time of year, and above all during the count itself. It keeps a private record of each day so the path can be seen over time. Its companion, <strong>SeferAI</strong>, finds and cites what the texts say about any day. <a href="https://seferai.org/omer">seferai.org/omer</a></p>
+      </div>
+    </section>
+
+    <section id="notes" aria-labelledby="notes-title">
+      <h2 id="notes-title">Notes</h2>
+      <ol class="notes">
+        <li id="n1">Ein Sof as the “simple supernal light” that filled all existence before anything was emanated: R. Chaim Vital, <i>Etz Chaim</i>, Heichal 1, Shaar 1 (Derush Igulim veYosher), Anaf 2. <a href="https://www.sefaria.org/Sefer_Etz_Chaim.1.2.2">Sefaria</a> <a href="#r1" aria-label="Back to text">↩</a></li>
+        <li id="n2">The contraction around the central point, leaving a vacant space (<i>makom panui</i>, <i>chalal</i>): the same passage, <i>Etz Chaim</i> 1:2:2. <a href="https://www.sefaria.org/Sefer_Etz_Chaim.1.2.2">Sefaria</a> <a href="#r2" aria-label="Back to text">↩</a></li>
+        <li id="n3">On lights that withdraw leaving an impression (<i>reshimu</i>) where they had been: <i>Etz Chaim</i> 6:5:1. <a href="https://www.sefaria.org/Sefer_Etz_Chaim.6.5.1">Sefaria</a> <a href="#r3" aria-label="Back to text">↩</a></li>
+        <li id="n4">Conservation of energy, and its derivation from time-translation symmetry: E. Noether, “Invariante Variationsprobleme,” <i>Nachrichten von der Gesellschaft der Wissenschaften zu Göttingen</i> (1918): 235–257. <a href="#r4" aria-label="Back to text">↩</a></li>
+        <li id="n5">The Second Law and entropy: R. Clausius (1865); its statistical reading, L. Boltzmann (1877). <a href="#r5" aria-label="Back to text">↩</a></li>
+      </ol>
+    </section>
+
+    <section id="voices" aria-labelledby="voices-title">
+      <h2 id="voices-title">Voices</h2>
+      <p><a href="https://drive.google.com/file/d/1Z5qGsqR6Uv8G2p3Ru67pWWhW51o2M6TS/view?usp=sharing">Ancient Jewish Texts: The Operating Manual for Reality</a><br>
+      <span style="color:var(--ink-soft)">An AI-generated audio conversation about the essay’s ideas, made with Google NotebookLM from the essay. The voices are synthetic. Opens in Google Drive.</span></p>
+    </section>
+
+    <section id="reading" aria-labelledby="reading-title">
+      <h2 id="reading-title">Further reading</h2>
+      <ul class="reading">
+        <li><a href="https://minaction.net">minAction.net</a><span>The research programme: framework, validations, papers and code.</span></li>
+        <li><a href="https://arxiv.org/abs/2603.16951">Minimum-Action Learning</a><span>The formal paper on the action principle · arXiv 2603.16951</span></li>
+        <li><a href="https://www.sefaria.org/Sefer_Etz_Chaim.1.2.2">Etz Chaim 1:2:2</a><span>R. Chaim Vital’s account of Tzimtzum, on Sefaria</span></li>
+        <li><a href="https://seferai.org/omer">Omer</a><span>The 49-day walk, as an iPhone app, with its companion SeferAI</span></li>
+      </ul>
+    </section>
+
+    <section id="cite" aria-labelledby="cite-title">
+      <h2 id="cite-title">Cite this essay</h2>
+      <p>If you use or refer to this essay, you can cite it as below.</p>
+      <div class="citebox">
+        <div class="citetabs" role="tablist" aria-label="Citation format">
+          <button type="button" role="tab" id="tab-apa" aria-selected="true" aria-controls="cite-apa">APA</button>
+          <button type="button" role="tab" id="tab-bib" aria-selected="false" aria-controls="cite-bib">BibTeX</button>
+          <button type="button" class="copy" id="copy-cite">Copy</button>
+        </div>
+        <pre class="cite" id="cite-apa" role="tabpanel" aria-labelledby="tab-apa">Frasch, M. G. (2026). The Unseen Architecture: From Cosmic Contraction to Convergent Design. Beyond minAction.net. https://minaction.net/beyond/</pre>
+        <pre class="cite" id="cite-bib" role="tabpanel" aria-labelledby="tab-bib" hidden>@misc{frasch2026unseen,
+  author       = {Frasch, Martin G.},
+  title        = {The Unseen Architecture: From Cosmic Contraction to Convergent Design},
+  year         = {2026},
+  howpublished = {Beyond minAction.net},
+  url          = {https://minaction.net/beyond/}
+}</pre>
+      </div>
+    </section>
+    <script>
+      (() => {
+        const tabs = { 'tab-apa': 'cite-apa', 'tab-bib': 'cite-bib' };
+        const show = id => Object.entries(tabs).forEach(([t, p]) => {
+          document.getElementById(t).setAttribute('aria-selected', t === id);
+          document.getElementById(p).hidden = t !== id;
+        });
+        Object.keys(tabs).forEach(t => document.getElementById(t).addEventListener('click', () => show(t)));
+        const btn = document.getElementById('copy-cite');
+        btn.addEventListener('click', () => {
+          const pre = [...document.querySelectorAll('pre.cite')].find(p => !p.hidden);
+          const done = () => { btn.textContent = 'Copied'; setTimeout(() => btn.textContent = 'Copy', 1600); };
+          const select = () => { const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selected'; };
+          try { navigator.clipboard.writeText(pre.textContent).then(done, select); } catch (e) { select(); }
+        });
+      })();
+    </script>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">Martin G. Frasch · Interpretive writing alongside <a href="https://minaction.net">minAction.net</a></div>
+</footer>
+</body>
+</html>
